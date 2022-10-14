@@ -25,11 +25,31 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> = Nati
 >;
 
 export type RootTabParamList = {
-  TabOne: undefined;
+  HomeScreen: undefined;
   TabTwo: undefined;
 };
 
-export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<
-  BottomTabScreenProps<RootTabParamList, Screen>,
-  NativeStackScreenProps<RootStackParamList>
->;
+export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
+  CompositeScreenProps<
+    BottomTabScreenProps<RootTabParamList, Screen>,
+    NativeStackScreenProps<RootStackParamList>
+  >;
+
+export type Product = {
+  id: number | string;
+  title?: string;
+  description?: string;
+  image: string;
+  images?: string[];
+  options?: string[];
+  avgRating: number;
+  ratings: number;
+  price: number;
+  oldPrice?: number;
+};
+
+export type Cart = {
+  id: number | string;
+  quantity: number;
+  item: Product;
+};
